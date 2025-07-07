@@ -102,5 +102,5 @@ jobs:
           
           docker-compose pull
           docker-compose up -d --wait
-#ph-LEaXRS^N6zE
+
           EOF
