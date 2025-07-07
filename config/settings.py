@@ -33,6 +33,7 @@ INSTALLED_APPS = [
 
     'education',
     'rest_framework',
+    'drf_yasg'
 
 ]
 

@@ -18,4 +18,5 @@ class EducationModel(models.Model):
         verbose_name_plural = 'Образовательные модули'
 
     def __str__(self):
-        return f'{self.order} - {self.title}'
+        return self.title
+
