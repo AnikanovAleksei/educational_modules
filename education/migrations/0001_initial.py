@@ -44,7 +44,7 @@ class Migration(migrations.Migration):
                 (
                     "description",
                     models.TextField(
-                        validators=[education.models.validate_description],
+                        validators=[education.models.MinLengthValidator(3)],
                         verbose_name="Описание",
                     ),
                 ),
