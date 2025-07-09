@@ -33,6 +33,7 @@ INSTALLED_APPS = [
 
     'education',
     'rest_framework',
+    'drf_yasg'
 
 ]
 
@@ -123,8 +124,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/app/static_collected'  # Абсолютный путь!
-STATICFILES_DIRS = ['/app/static']  # Абсолютный путь
+STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'static_collected'
 
 
 MEDIA_URL = '/media/'
