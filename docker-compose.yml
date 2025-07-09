@@ -2,11 +2,13 @@ services:
   web:
     build: .
     command: >
-      bash -c "python manage.py collectstatic -c --no-input && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+      python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     env_file:
       - .env
+    environment:
+      DB_HOST: db
     volumes:
-      - static_volume:/app/static_collected
+      - ./:/app/
     ports:
       - "8000:8000"
     depends_on:
@@ -29,17 +31,5 @@ services:
       timeout: 5s
       retries: 10
 
-  nginx:
-    image: nginx:1.19.3
-    ports:
-      - "80:80"
-    volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf
-      - static_volume:/app/static_collected
-    depends_on:
-      web:
-        condition: service_started
-
 volumes:
   postgres_data:
-  static_volume:
